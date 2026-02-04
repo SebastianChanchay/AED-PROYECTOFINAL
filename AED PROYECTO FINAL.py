@@ -1,3 +1,5 @@
+import re
+
 class NodoRegion:
     def __init__(self, nombre):
         self.nombre = nombre
@@ -20,3 +22,15 @@ def agregar_jerarquia(raiz, region, subregion, centro):
     if centro not in nodo_sub.centros:
         nodo_sub.centros.append(centro)
 
+
+
+def validar_password(password):
+    if len(password) < 6:
+        return False
+    if not re.search("[a-z]", password):
+        return False
+    if not re.search("[A-Z]", password):
+        return False
+    if not re.search("[0-9]", password):
+        return False
+    return True
